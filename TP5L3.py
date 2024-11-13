@@ -1,3 +1,4 @@
+import math
 from math import atan2
 class Point:
     def __init__(self, *args):
@@ -26,11 +27,15 @@ class Point:
         return (self.x == a.x) and (self.y == a.y)
 
     def angle(self, p):
-        return atan2(p.y-self.y, p.x-self.x)
+        return math.degrees(math.atan2(p.y-self.y, p.x-self.x))
 
+    def distance_point(self,p):
+        return math.sqrt((p.x-self.x)**2+(p.y-self.y)**2)
 
-
-p = Point(1,2)
+p = Point(1, 2)
+t = Point(3, 4)
 print(p)
 d = Point(p)
 print(p == Point(1,2))
+print(t.angle(p))
+print(t.distance_point(p))
